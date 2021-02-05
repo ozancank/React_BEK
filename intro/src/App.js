@@ -33,8 +33,8 @@ export default class App extends Component {
       addedItem.quantity += 1;
     } else {
       newCart.push({ product: product, quantity: 1 });
-      this.setState({ cart: newCart });
     }
+    this.setState({ cart: newCart });
   };
 
   render() {
