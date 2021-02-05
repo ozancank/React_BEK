@@ -1,2 +1,2 @@
-# React_BEK
+# React_BTK
 BTK Akademi React Eğitimi
