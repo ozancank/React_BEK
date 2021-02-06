@@ -7,7 +7,6 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
 } from "reactstrap";
 import CartSummary from "./CartSummary";
 
@@ -31,14 +30,10 @@ export default class Navi extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem>
-                <NavLink>
-                  <Link to="form1">Form Demo 1</Link>
-                </NavLink>
+                  <Link to="/form1" className="nav-link">Form Demo 1</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">
-                  GitHub
-                </NavLink>
+                  <Link to="/form2" className="nav-link">Form Demo 2</Link>
               </NavItem>
               <CartSummary
                 removeFromCart={this.props.removeFromCart}
