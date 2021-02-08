@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import {
   Collapse,
   Navbar,
@@ -25,17 +26,16 @@ export default class Navi extends Component {
     return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Northwind App</NavbarBrand>
+          <Link to="/" className="navbar-brand">
+            Northwind Mağazası
+          </Link>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">
-                  GitHub
-                </NavLink>
+                <Link to="/saveproduct" className="nav-link">
+                  Ürün ekle
+                </Link>
               </NavItem>
               <CartSummary />
             </Nav>
@@ -45,4 +45,3 @@ export default class Navi extends Component {
     );
   }
 }
-

@@ -3,9 +3,9 @@
     {
       "id": 1,
       "categoryId": 2,
-      "productName": "Chai",
+      "productName": "Chaii",
       "quantityPerUnit": "48 - 6 oz jars",
-      "unitPrice": "24",
+      "unitPrice": "26",
       "unitsInStock": 53
     },
     {
@@ -615,6 +615,14 @@
       "quantityPerUnit": "1",
       "unitsInStock": "2",
       "id": 78
+    },
+    {
+      "productName": "Çay",
+      "categoryId": 1,
+      "unitPrice": "2",
+      "quantityPerUnit": "asd",
+      "unitsInStock": "20",
+      "id": 79
     }
   ],
   "categories": [
