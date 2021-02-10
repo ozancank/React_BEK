@@ -29,6 +29,11 @@ export class UserResolver {
         return `your user id is: ${payload!.userId}`;
     }
 
+    @Query(() => [User])
+    users() {
+      return User.find();
+    }
+
     @Mutation(() => Boolean)
     async revokeRefreshTokenForUser(
         @Arg('userId', () => Int) userId: number
@@ -48,7 +53,6 @@ export class UserResolver {
     ): Promise<LoginResponse> {
 
         const user = await User.findOne({ where: { email } });
-
         if (!user) {
             throw new Error("could not find user");
         }
