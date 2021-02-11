@@ -14,8 +14,6 @@ import { User } from "./entity/User";
 import { createAccessToken, createRefreshToken } from "./auth";
 import { sendRefreshToken } from "./sendRefreshToken";
 
-// ACCESS_TOKEN_SECRET=adjfhggandfglalkdhfglakdhmfgja
-// REFRESH_TOKEN_SECRET=asldfghdrtbdfdnvnb
 //http://localhost:4000/
 //http://localhost:4000/graphql
 (async () => {
