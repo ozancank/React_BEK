@@ -27,9 +27,9 @@ const Pokemon = (props: any) => {
           </div>
           <div className="item">
             <h1>Stats</h1>
-            {pokeData.stats.map((el: any) => {
+            {pokeData.stats.map((el: any, i: number) => {
               return (
-                <p>
+                <p key={i}>
                   {el.stat.name} {el.base_stat}
                 </p>
               );
@@ -37,8 +37,8 @@ const Pokemon = (props: any) => {
           </div>
           <div className="item">
             <h1>Abilities</h1>
-            {pokeData.abilities.map((el: any) => {
-              return <p>{el.ability.name}</p>;
+            {pokeData.abilities.map((el: any, i: number) => {
+              return <p key={i}>{el.ability.name}</p>;
             })}
           </div>
         </div>
