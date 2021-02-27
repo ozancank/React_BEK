@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { GetPokemon } from "../store/actions/pokemonActions";
 import { RootStore } from "../store/store";
 import _ from "lodash";
+import {
+  pokemonDetailAbility,
+  pokemonDetailStat,
+} from "../models/pokemonDetailModels";
 
-const Pokemon = (props: any) => {
+const PokemonDetail = (props: any) => {
   const pokemonName: string = props.match.params.pokemon;
   const dispatch = useDispatch();
   const pokemonState = useSelector((state: RootStore) => state.Pokemon);
@@ -27,19 +31,21 @@ const Pokemon = (props: any) => {
           </div>
           <div className="item">
             <h1>Stats</h1>
-            {pokeData.stats.map((el: any, i: number) => {
+            {pokeData.stats.map((stat: pokemonDetailStat, i: number) => {
               return (
                 <p key={i}>
-                  {el.stat.name} {el.base_stat}
+                  {stat.stat.name} {stat.base_stat}
                 </p>
               );
             })}
           </div>
           <div className="item">
             <h1>Abilities</h1>
-            {pokeData.abilities.map((el: any, i: number) => {
-              return <p key={i}>{el.ability.name}</p>;
-            })}
+            {pokeData.abilities.map(
+              (ability: pokemonDetailAbility, i: number) => {
+                return <p key={i}>{ability.ability.name}</p>;
+              }
+            )}
           </div>
         </div>
       );
@@ -64,4 +70,4 @@ const Pokemon = (props: any) => {
   );
 };
 
-export default Pokemon;
+export default PokemonDetail;

@@ -21,7 +21,7 @@ const pokemonReducer = (state: DefaultStateI = defaultState, action: PokemonDisp
             }
         case POKEMON_SUCCESS:
             return {
-                loading: true,
+                loading: false,
                 pokemon: action.payload
             }
         default:

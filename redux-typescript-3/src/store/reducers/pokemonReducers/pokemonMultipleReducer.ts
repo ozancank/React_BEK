@@ -1,3 +1,4 @@
+// import { pokemonDetail } from '../../../models/pokemonDetailModels';
 import * as actionTypes from '../../actionTypes/_actionTypes';
 
 interface DefaultStateI {

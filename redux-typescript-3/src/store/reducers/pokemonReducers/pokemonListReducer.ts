@@ -1,9 +1,10 @@
-import * as actionTypes from '../../actionTypes/_actionTypes';
+import { pokemonListItemResults } from '../../../models/pokemonListModels';
 import { AppDispatchTypes } from "../../appDispatchTypes";
+import * as actionTypes from '../../actionTypes/_actionTypes';
 
 interface DefaultStateI {
     loading: boolean,
-    data: [],
+    data: pokemonListItemResults[],
     errorMsg: string,
     count: number
 };

@@ -1,8 +1,10 @@
-import * as actionTypes from './_actionTypes'
+import { pokemonDetail } from '../../models/pokemonDetailModels';
+import { pokemonListItem } from '../../models/pokemonListModels';
+import * as actionTypes from './_actionTypes';
 
 export interface PokemonListLoading { type: typeof actionTypes.POKEMON_LIST_LOADING, }
 
-export interface PokemonListSuccess { type: typeof actionTypes.POKEMON_LIST_SUCCESS, payload: any }
+export interface PokemonListSuccess { type: typeof actionTypes.POKEMON_LIST_SUCCESS, payload: pokemonListItem }
 
 export interface PokemonListFail { type: typeof actionTypes.POKEMON_LIST_FAIL, }
 

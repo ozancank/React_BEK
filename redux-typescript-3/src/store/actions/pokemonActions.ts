@@ -1,18 +1,18 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { Dispatch } from "react";
 import { AppDispatchTypes } from "../appDispatchTypes";
 import * as actionTypes from '../actionTypes/_actionTypes';
+import { pokemonListItem } from "../../models/pokemonListModels";
 
-export const GetPokemonList = (page: number) => async (dispatch: Dispatch<AppDispatchTypes>) => {
+export const GetPokemonList = (page: number, perPage: number) => async (dispatch: Dispatch<AppDispatchTypes>) => {
     try {
         dispatch({
             type: actionTypes.POKEMON_LIST_LOADING
         });
 
-        const perPage: number = 15;
         const offset: number = (page * perPage) - perPage;
 
-        const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${perPage}&offset=${offset}`);
+        const res: AxiosResponse<pokemonListItem> = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${perPage}&offset=${offset}`);
 
         dispatch({
             type: actionTypes.POKEMON_LIST_SUCCESS,

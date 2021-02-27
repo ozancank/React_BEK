@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Pokemon from "./containers/Pokemon";
+import PokemonDetail from "./containers/PokemonDetail";
 import PokemonList from "./containers/PokemonList";
 
 //https://www.youtube.com/watch?v=GbAENvrGbDo&ab_channel=LetsCode
@@ -14,7 +14,7 @@ function App() {
       </nav>
       <Switch>
         <Route path={"/"} exact component={PokemonList} />
-        <Route path={"/pokemon/:pokemon"} exact component={Pokemon} />
+        <Route path={"/pokemon/:pokemon"} exact component={PokemonDetail} />
         <Redirect to={"/"} />
       </Switch>
     </div>

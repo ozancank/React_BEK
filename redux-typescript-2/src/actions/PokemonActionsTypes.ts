@@ -11,7 +11,6 @@ export type PokemonType = {
 export type PokemonAbility = {
     ability: {
         name: string
-        url: string
     }
 }
 
