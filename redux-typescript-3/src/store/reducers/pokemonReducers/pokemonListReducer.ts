@@ -1,4 +1,5 @@
-import { PokemonListDispatchTypes, POKEMON_LIST_FAIL, POKEMON_LIST_LOADING, POKEMON_LIST_SUCCESS } from "../actions/pokemonActionsTypes";
+import * as actionTypes from '../../actionTypes/_actionTypes';
+import { AppDispatchTypes } from "../../appDispatchTypes";
 
 interface DefaultStateI {
     loading: boolean,
@@ -14,21 +15,21 @@ const defaultState: DefaultStateI = {
     count: 0
 };
 
-const PokemonListReducer = (state: DefaultStateI = defaultState, action: PokemonListDispatchTypes) => {
+const PokemonListReducer = (state: DefaultStateI = defaultState, action: AppDispatchTypes) => {
     switch (action.type) {
-        case POKEMON_LIST_LOADING:
+        case actionTypes.POKEMON_LIST_LOADING:
             return {
                 ...state,
                 loading: true,
                 errorMsg: ""
             };
-        case POKEMON_LIST_FAIL:
+        case actionTypes.POKEMON_LIST_FAIL:
             return {
                 ...state,
                 loading: false,
                 errorMsg: "unable to get pokemon"
             };
-        case POKEMON_LIST_SUCCESS:
+        case actionTypes.POKEMON_LIST_SUCCESS:
             return {
                 ...state,
                 loading: false,

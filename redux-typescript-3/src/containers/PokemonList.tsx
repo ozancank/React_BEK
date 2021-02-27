@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, ChangeEvent } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootStore } from "../store";
+import { RootStore } from "../store/store";
 import _ from "lodash";
-import { GetPokemonList } from "../actions/pokemonActions";
+import { GetPokemonList } from "../store/actions/pokemonActions";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 
@@ -51,11 +51,11 @@ const PokemonList = (props: any) => {
         <p>Search: </p>
         <input
           type="text"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
             setSearch(e.target.value)
           }
         />
-        <button onClick={() => props.history.push(`/pokemon/${search}`)}>
+        <button onClick={() => props.history.push(`/pokemon/${search.toLowerCase()}`)}>
           Search
         </button>
       </div>
@@ -64,7 +64,7 @@ const PokemonList = (props: any) => {
         <ReactPaginate
           pageCount={Math.ceil(pokemonList.count / 15)}
           pageRangeDisplayed={2}
-          marginPagesDisplayed={1}
+          marginPagesDisplayed={2}
           onPageChange={(data: any) => FetchData(data.selected + 1)}
           containerClassName={"pagination"}
         />

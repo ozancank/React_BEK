@@ -1,19 +1,12 @@
 import axios from "axios";
 import { Dispatch } from "react";
-import {
-    PokemonListDispatchTypes,
-    POKEMON_LIST_FAIL, 
-    POKEMON_LIST_LOADING, 
-    POKEMON_LIST_SUCCESS, 
-    POKEMON_MULTIPLE_FAIL, 
-    POKEMON_MULTIPLE_LOADING,
-    POKEMON_MULTIPLE_SUCCESS
-} from "./pokemonActionsTypes";
+import { AppDispatchTypes } from "../appDispatchTypes";
+import * as actionTypes from '../actionTypes/_actionTypes';
 
-export const GetPokemonList = (page: number) => async (dispatch: Dispatch<PokemonListDispatchTypes>) => {
+export const GetPokemonList = (page: number) => async (dispatch: Dispatch<AppDispatchTypes>) => {
     try {
         dispatch({
-            type: POKEMON_LIST_LOADING
+            type: actionTypes.POKEMON_LIST_LOADING
         });
 
         const perPage: number = 15;
@@ -22,13 +15,13 @@ export const GetPokemonList = (page: number) => async (dispatch: Dispatch<Pokemo
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${perPage}&offset=${offset}`);
 
         dispatch({
-            type: POKEMON_LIST_SUCCESS,
+            type: actionTypes.POKEMON_LIST_SUCCESS,
             payload: res.data
         });
     }
     catch (e) {
         dispatch({
-            type: POKEMON_LIST_FAIL
+            type: actionTypes.POKEMON_LIST_FAIL
         })
     }
 };
@@ -36,20 +29,20 @@ export const GetPokemonList = (page: number) => async (dispatch: Dispatch<Pokemo
 export const GetPokemon = (pokemon: string) => async (dispatch: any) => {
     try {
         dispatch({
-            type: POKEMON_MULTIPLE_LOADING
+            type: actionTypes.POKEMON_MULTIPLE_LOADING
         });
 
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
 
         dispatch({
-            type: POKEMON_MULTIPLE_SUCCESS,
+            type: actionTypes.POKEMON_MULTIPLE_SUCCESS,
             payload: res.data,
             pokemonName: pokemon
         });
     }
     catch (e) {
         dispatch({
-            type: POKEMON_MULTIPLE_FAIL
+            type: actionTypes.POKEMON_MULTIPLE_FAIL
         })
     }
 }

@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { GetPokemon } from "../actions/pokemonActions";
-import { RootStore } from "../store";
+import { GetPokemon } from "../store/actions/pokemonActions";
+import { RootStore } from "../store/store";
 import _ from "lodash";
 
 const Pokemon = (props: any) => {
@@ -58,7 +58,7 @@ const Pokemon = (props: any) => {
 
   return (
     <div className={"poke"}>
-      <h1>{pokemonName}</h1>
+      <h1>{pokemonName.toUpperCase()}</h1>
       {ShowData()}
     </div>
   );

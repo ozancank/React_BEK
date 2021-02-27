@@ -71,5 +71,6 @@ nav a {
   margin: auto;
   list-style: none;
   justify-content: space-between;
-  padding: 0;
+  padding: 0px;
+  padding-bottom: 50px;
 }
