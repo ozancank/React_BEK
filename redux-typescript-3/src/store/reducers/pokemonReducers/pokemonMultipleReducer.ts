@@ -1,19 +1,20 @@
-// import { pokemonDetail } from '../../../models/pokemonDetailModels';
+import { pokemonMultiple } from '../../../models/pokemonDetailModels';
 import * as actionTypes from '../../actionTypes/_actionTypes';
+import { AppDispatchTypes } from '../../appDispatchTypes';
 
 interface DefaultStateI {
     loading: boolean,
-    data: any,
     errorMsg: string,
+    data?: pokemonMultiple,
 };
 
 const defaultState: DefaultStateI = {
     loading: false,
-    data: {},
     errorMsg: "",
+    data: {} as pokemonMultiple
 };
 
-const PokemonMultipleReducer = (state: DefaultStateI = defaultState, action: any) => {
+const PokemonMultipleReducer = (state: DefaultStateI = defaultState, action: AppDispatchTypes) => {
     switch (action.type) {
         case actionTypes.POKEMON_MULTIPLE_LOADING:
             return {
@@ -32,10 +33,7 @@ const PokemonMultipleReducer = (state: DefaultStateI = defaultState, action: any
                 ...state,
                 loading: false,
                 errorMsg: "",
-                data: {
-                    ...state.data,
-                    [action.pokemonName]: action.payload
-                },
+                data: action.payload
             };
         default:
             return state;

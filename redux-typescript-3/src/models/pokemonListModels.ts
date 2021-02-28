@@ -1,9 +1,9 @@
-export type pokemonListItem = {
+export type pokemonList = {
     count: number,
-    results: pokemonListItemResults[]
+    results: pokemonListResults[]
 }
 
-export type pokemonListItemResults = {
+export type pokemonListResults = {
     name: string,
     url: string
 }

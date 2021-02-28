@@ -1,18 +1,18 @@
-import { pokemonListItemResults } from '../../../models/pokemonListModels';
+import { pokemonListResults } from '../../../models/pokemonListModels';
 import { AppDispatchTypes } from "../../appDispatchTypes";
 import * as actionTypes from '../../actionTypes/_actionTypes';
 
 interface DefaultStateI {
     loading: boolean,
-    data: pokemonListItemResults[],
     errorMsg: string,
+    data: pokemonListResults[],
     count: number
 };
 
 const defaultState: DefaultStateI = {
     loading: false,
-    data: [],
     errorMsg: "",
+    data: [],
     count: 0
 };
 
@@ -34,8 +34,8 @@ const PokemonListReducer = (state: DefaultStateI = defaultState, action: AppDisp
             return {
                 ...state,
                 loading: false,
-                data: action.payload.results,
                 errorMsg: "",
+                data: action.payload.results,
                 count: action.payload.count
             };
         default:

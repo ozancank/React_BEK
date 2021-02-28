@@ -4,8 +4,8 @@ import { GetPokemon } from "../store/actions/pokemonActions";
 import { RootStore } from "../store/store";
 import _ from "lodash";
 import {
-  pokemonDetailAbility,
-  pokemonDetailStat,
+  pokemonMultipleAbility,
+  pokemonMultipleStat,
 } from "../models/pokemonDetailModels";
 
 const PokemonDetail = (props: any) => {
@@ -18,20 +18,20 @@ const PokemonDetail = (props: any) => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const ShowData = () => {
-    if (!_.isEmpty(pokemonState.data[pokemonName])) {
-      const pokeData = pokemonState.data[pokemonName];
+    if (!_.isEmpty(pokemonState.data?.name)) {
+      const pokeData = pokemonState.data;
       return (
         <div className={"pokemon-wrapper"}>
           <div className={"item"}>
             <h1>Sprites</h1>
-            <img src={pokeData.sprites.front_default} alt="" />
-            <img src={pokeData.sprites.back_default} alt="" />
-            <img src={pokeData.sprites.front_shiny} alt="" />
-            <img src={pokeData.sprites.back_shiny} alt="" />
+            <img src={pokeData?.sprites.front_default} alt="" />
+            <img src={pokeData?.sprites.back_default} alt="" />
+            <img src={pokeData?.sprites.front_shiny} alt="" />
+            <img src={pokeData?.sprites.back_shiny} alt="" />
           </div>
           <div className="item">
             <h1>Stats</h1>
-            {pokeData.stats.map((stat: pokemonDetailStat, i: number) => {
+            {pokeData?.stats.map((stat: pokemonMultipleStat, i: number) => {
               return (
                 <p key={i}>
                   {stat.stat.name} {stat.base_stat}
@@ -41,8 +41,8 @@ const PokemonDetail = (props: any) => {
           </div>
           <div className="item">
             <h1>Abilities</h1>
-            {pokeData.abilities.map(
-              (ability: pokemonDetailAbility, i: number) => {
+            {pokeData?.abilities.map(
+              (ability: pokemonMultipleAbility, i: number) => {
                 return <p key={i}>{ability.ability.name}</p>;
               }
             )}

@@ -1,23 +1,24 @@
-export type pokemonDetail = {
-    sprites: pokemonDetailSprites,
-    abilities: pokemonDetailAbility[],
-    stats: pokemonDetailStat[]
+export type pokemonMultiple = {
+    name: string,
+    sprites: pokemonMultipleSprites,
+    abilities: pokemonMultipleAbility[],
+    stats: pokemonMultipleStat[]
 }
 
-export type pokemonDetailSprites = {
+export type pokemonMultipleSprites = {
     front_default: string
     back_default: string
     front_shiny: string
     back_shiny: string
 }
 
-export type pokemonDetailAbility = {
+export type pokemonMultipleAbility = {
     ability: {
         name: string
     }
 }
 
-export type pokemonDetailStat = {
+export type pokemonMultipleStat = {
     base_stat: number,
     stat: {
         name: string
