@@ -15,7 +15,8 @@ const PokemonDetail = (props: any) => {
 
   useEffect(() => {
     dispatch(GetPokemon(pokemonName));
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [dispatch, pokemonName]);
+  // eslint-disable-line react-hooks/exhaustive-deps
 
   const ShowData = () => {
     if (!_.isEmpty(pokemonState.data?.name)) {
